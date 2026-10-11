@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Font dan warna bisa disesuaikan dengan ide kamu. */
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.6;
+  color: #2d2d2d;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1040px;
+  margin: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.3;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 32px;
+}
+
+h2 {
+  margin: 0 0 24px;
+  font-size: 24px;
+}
+
+h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+p {
+  margin: 6px 0 0;
+}
+
+a {
+  color: #59338a;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* Navbar */
+header {
+  background-color: #ffffff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.brand {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #222;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Landing page */
+.home {
+  display: flex;
+  flex: 1;
+  background-color: #ffffff;
+}
+
+.home-layout {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.home-content {
+  max-width: 520px;
+}
+
+.home h1 {
+  font-size: 40px;
+}
+
+.home-photo {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 20px;
+  color: #ffffff;
+  background-color: #59338a;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #432367;
+}
+
+/* Biodata */
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+h1 span {
+  color: #59338a;
+}
+
+.profile {
+  flex: 1;
+  min-width: 0;
+}
+
+dl {
+  margin: 0;
+}
+
+dl div {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+dt {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.profile-photo {
+  width: 245px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Pendidikan dan pengalaman */
+.education {
+  background-color: #f1edf9;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.experience {
+  padding-top: 36px;
+  padding-bottom: 48px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+/* Jumlah kolom bisa diatur melalui repeat(). */
+.education .list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.education .list li {
+  text-align: center;
+}
+
+.list p {
+  color: #666666;
+  font-size: 14px;
+}
+
+.experience .list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.experience .list li {
+  padding: 24px;
+  background-color: #f1edf9;
+}
+
+/* Penyesuaian dasar kalau ukuran layar lebih kecil. */
+@media (max-width: 700px) {
+  .navbar,
+  .home-layout,
+  .about {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-layout {
+    justify-content: center;
+    gap: 32px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .home h1 {
+    font-size: 30px;
+  }
+
+  .education .list,
+  .experience .list,
+  dl div {
+    grid-template-columns: 1fr;
+  }
+}
