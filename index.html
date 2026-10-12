@@ -6,11 +6,12 @@
     <title>Profil - Denys Yudiantara</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="bg-[#0b0b0b] text-[#cdc6be] min-h-screen">
     <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-6 mix-blend-difference z-20">
-            <a class="sm:text-2xl font-bold">RETURN NYSS;</a>
+            <a href="#home" class="sm:text-2xl font-bold">RETURN NYSS;</a>
         <div>
             <button id="burgerBtn" onclick="toggleMenu()" class="relative p-4 bg-transparent border-none cursor-pointer w-[28px] h-[20px] focus:outline-none" aria-label="Toggle Menu">
                 <span id="burgerLine1" class="absolute left-0 w-[40px] h-[2px] bg-[#cdc6be] transition-all duration-300 ease-out -translate-y-[6px]"></span>
@@ -61,10 +62,11 @@
                 Mahasiswa Informatika Universitas Udayana yang sedang mendalami software engineering, pengembangan web, dan penerapan clean code.
             </p>
             <div class="pt-4 flex justify-center md:justify-start gap-4">
-                <a href="#biodata" class="px-7 py-3 bg-[#cdc6be] text-[#0b0b0b] font-medium rounded-full hover:opacity-90 transition">
+                <a href="#biodata" class="px-7 py-3 bg-[#cdc6be] text-[#0b0b0b] text-lg rounded-full hover:opacity-90 transition">
                     Biodata
                 </a>
                 <a href="https://www.instagram.com/nyssaja/" target="_blank" class="px-7 py-3 border border-[#cdc6be]/30 rounded-full hover:border-[#cdc6be] transition">
+                    <i class="fa-brands fa-instagram text-lg pr-2"></i>
                     Instagram
                 </a>
             </div>
@@ -170,7 +172,7 @@
                         <span class="text-[16px] opacity-50 font-medium">2023 - 2026</span>
                         <div class="sm:col-span-2">
                             <h3 class="text-xl font-bold">SMKS Wira Harapan</h3>
-                            <p class="text-sm opacity-70 mt-1">Sekolah Menengah Kejuruan</p>
+                            <p class="text-sm opacity-70 mt-1">Rekayasa Perangkat Lunak</p>
                         </div>
                     </div>
                 </div>
@@ -357,6 +359,48 @@
         </div>
     </div>
 </section>
+
+<!-- Footer -->
+<footer class="border-t border-[#cdc6be]/20 py-16 px-6">
+    <div class="max-w-6xl mx-auto space-y-12">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 border-b border-[#cdc6be]/15 pb-12" data-aos="fade-up">
+            <div class="space-y-2 max-w-md">
+                <h3 class="text-2xl sm:text-3xl font-bold">Yuk, Kenalan!</h3>
+                <p class="text-sm opacity-60 font-light">
+                    Jangan cuma liat-liat aja, ntar kepikiran!
+                </p>
+            </div>
+            <a href="mailto:denysyudiantara@gmail.com" class="px-8 py-3.5 bg-[#cdc6be] text-[#0b0b0b] font-semibold rounded-full hover:opacity-90 transition duration-300 shadow-lg">
+                Kirim Email
+            </a>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-6" data-aos="fade-up" data-aos-delay="100">
+            <div>
+                <span class="text-lg font-bold tracking-tight">Denys Yudiantara</span>
+                <p class="text-xs opacity-50">Informatika — Universitas Udayana</p>
+            </div>
+                <div class="flex flex-wrap items-center gap-6 text-sm opacity-70">
+                    <a href="https://github.com/NyssINI" target="_blank" class="flex items-center gap-2 hover:opacity-100 hover:text-[#cdc6be] transition duration-300">
+                        <i class="fa-brands fa-github text-lg"></i>
+                    <span>GitHub</span>
+                </a>
+            <a href="https://linkedin.com/in/i-gusti-ngurah-denys-yudiantara" target="_blank" class="flex items-center gap-2 hover:opacity-100 hover:text-[#cdc6be] transition duration-300">
+                <i class="fa-brands fa-linkedin text-lg"></i>
+                    <span>LinkedIn</span>
+                </a>
+            <a href="https://www.instagram.com/nyssaja/" target="_blank" class="flex items-center gap-2 hover:opacity-100 hover:text-[#cdc6be] transition duration-300">
+                <i class="fa-brands fa-instagram text-lg"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+       <div class="text-center sm:text-left border-t border-[#cdc6be]/25 pt-6 flex flex-col sm:flex-row justify-between text-xs opacity-40 gap-2">
+            <p>&copy; 2026 Denys Yudiantara</p>
+            <p>Designed with passion</p>
+        </div>
+    </div>
+</footer>
 
     <script>
         function toggleMenu() {
