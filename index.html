@@ -7,6 +7,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @keyframes marquee-left {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes marquee-right {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0%); }
+        }
+        
+        .animate-marquee-left {
+            display: flex;
+            flex-shrink: 0;
+            min-width: 100%;
+            animation: marquee-left 20s linear infinite;
+        }
+        .animate-marquee-right {
+            display: flex;
+            flex-shrink: 0;
+            min-width: 100%;
+            animation: marquee-right 20s linear infinite;
+        }
+    </style>
 </head>
 <body class="bg-[#0b0b0b] text-[#cdc6be] min-h-screen">
     <!-- Navbar -->
@@ -51,7 +74,7 @@
         </div>
     </div>
 
-<!-- Home Section -->
+<!-- Home -->
 <section id="home" class="min-h-screen flex items-center justify-center px-6 py-20">
     <div class="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-6 text-center md:text-left" data-aos="fade-up">
@@ -82,6 +105,38 @@
         </div>
     </div>
 </section>
+
+<div class="relative w-full overflow-hidden py-10 my-4 select-none">
+    <div class="w-[140%] -ml-[20%] bg-[#cdc6be] text-[#0b0b0b] py-2.5 sm:py-3 rotate-3 sm:rotate-2 shadow-2xl z-10 overflow-hidden whitespace-nowrap flex border-y border-[#0b0b0b]/20">
+        <div class="flex shrink-0 animate-marquee-left items-center text-[11px] sm:text-sm font-extrabold tracking-widest uppercase opacity-90">
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-40">•</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-40">•</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-40">•</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-40">•</span>
+        </div>
+        <div class="flex shrink-0 animate-marquee-left items-center text-[11px] sm:text-sm font-extrabold tracking-widest uppercase opacity-90" aria-hidden="true">
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-40">•</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-40">•</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-40">•</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-40">•</span>
+        </div>
+    </div>
+
+    <div class="w-[140%] -ml-[20%] bg-[#161615] text-[#cdc6be] py-2.5 sm:py-3 -rotate-3 sm:-rotate-2 -mt-8 sm:-mt-10 border-y border-[#cdc6be]/20 shadow-2xl z-20 overflow-hidden whitespace-nowrap flex">
+        <div class="flex shrink-0 animate-marquee-right items-center text-[11px] sm:text-sm font-extrabold tracking-widest uppercase opacity-90">
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-30">—</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-30">—</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-30">—</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-30">—</span>
+        </div>
+        <div class="flex shrink-0 animate-marquee-right items-center text-[11px] sm:text-sm font-extrabold tracking-widest uppercase opacity-90" aria-hidden="true">
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-30">—</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-30">—</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-30">—</span>
+            <span class="px-3">I Gusti Ngurah Denys Yudiantara</span> <span class="opacity-30">—</span>
+        </div>
+    </div>
+</div>
 
 <!-- Biodata -->
 <section id="biodata" class="min-h-screen flex items-center justify-center px-6 py-20">
