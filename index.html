@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
         @keyframes marquee-left {
             0% { transform: translateX(0%); }
@@ -29,77 +30,94 @@
             min-width: 100%;
             animation: marquee-right 20s linear infinite;
         }
+        @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+        display: flex;
+        width: 200%;
+        animation: marquee 18s linear infinite;
+    }
+    .animate-marquee:hover {
+        animation-play-state: paused;
+    }
     </style>
 </head>
 <body class="bg-[#0b0b0b] text-[#cdc6be] min-h-screen">
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-6 mix-blend-difference z-20">
-            <a href="#home" class="sm:text-2xl font-bold">RETURN NYSS;</a>
-        <div>
-            <button id="burgerBtn" onclick="toggleMenu()" class="relative p-4 bg-transparent border-none cursor-pointer w-[28px] h-[20px] focus:outline-none" aria-label="Toggle Menu">
-                <span id="burgerLine1" class="absolute left-0 w-[40px] h-[2px] bg-[#cdc6be] transition-all duration-300 ease-out -translate-y-[6px]"></span>
-                <span id="burgerLine2" class="absolute left-0 w-[40px] h-[2px] bg-[#cdc6be] transition-all duration-300 ease-out translate-y-[6px]"></span>
-            </button>       
-        </div>
-    </nav>
 
-    <!-- Menu Overlay -->
-    <div id="menuOverlay" class="fixed inset-0 bg-[#10100f] flex flex-col justify-center items-center z-10 transform translate-y-full transition-all duration-500 ease-in-out">
-        <div class="flex flex-col items-center gap-6">
-            <div class="cursor-pointer group">
-                <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
-                    <a href="#home" onclick="toggleMenu()">Home</a>
-                </p>
-            </div>
-            <div class="cursor-pointer group">
-                <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
-                    <a href="#biodata" onclick="toggleMenu()">Biodata</a>
-                </p>
-            </div>
-             <div class="cursor-pointer group">
-                <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
-                    <a href="#pendidikan" onclick="toggleMenu()">Pendidikan</a>
-                </p>
-            </div>
-             <div class="cursor-pointer group">
-                <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
-                    <a href="#keahlian" onclick="toggleMenu()">Keahlian</a>
-                </p>
-            </div>
-            <div class="cursor-pointer group">
-                <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
-                    <a href="#project" onclick="toggleMenu()">Project</a>
-                </p>
-            </div>
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-6 mix-blend-difference z-50">
+    <a href="#home" class="sm:text-2xl font-bold">RETURN NYSS;</a>
+    <div>
+        <button id="burgerBtn" onclick="toggleMenu()" class="relative p-4 bg-transparent border-none cursor-pointer w-[28px] h-[20px] focus:outline-none" aria-label="Toggle Menu">
+            <span id="burgerLine1" class="absolute left-0 w-[40px] h-[2px] bg-[#cdc6be] transition-all duration-300 ease-out -translate-y-[6px]"></span>
+            <span id="burgerLine2" class="absolute left-0 w-[40px] h-[2px] bg-[#cdc6be] transition-all duration-300 ease-out translate-y-[6px]"></span>
+        </button>       
+    </div>
+</nav>
+
+<!-- Menu Overlay -->
+<div id="menuOverlay" class="fixed inset-0 w-full h-full bg-[#10100f] flex flex-col justify-center items-center z-40 transform translate-y-full transition-all duration-500 ease-in-out">
+    <div class="flex flex-col items-center gap-6">
+        <div class="cursor-pointer group">
+            <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
+                <a href="#home" onclick="toggleMenu()">Home</a>
+            </p>
+        </div>
+        <div class="cursor-pointer group">
+            <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
+                <a href="#biodata" onclick="toggleMenu()">Biodata</a>
+            </p>
+        </div>
+        <div class="cursor-pointer group">
+            <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
+                <a href="#pendidikan" onclick="toggleMenu()">Pendidikan</a>
+            </p>
+        </div>
+        <div class="cursor-pointer group">
+            <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
+                <a href="#keahlian" onclick="toggleMenu()">Keahlian</a>
+            </p>
+        </div>
+        <div class="cursor-pointer group">
+            <p class="text-4xl sm:text-7xl font-bold leading-none transition group-hover:tracking-wider">
+                <a href="#project" onclick="toggleMenu()">Project</a>
+            </p>
         </div>
     </div>
-
+</div>
+    
 <!-- Home -->
-<section id="home" class="min-h-screen flex items-center justify-center px-6 py-20">
-    <div class="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6 text-center md:text-left" data-aos="fade-up">
-            <h1 class="text-5xl sm:text-7xl font-bold">
-                Denys <br class="hidden md:block"> Yudiantara
+<section id="home" class="min-h-screen relative flex items-center justify-center px-4 sm:px-6 py-16 sm:py-24 bg-[#0b0b0b] overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#cdc6be]/5 blur-[90px] sm:blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="max-w-6xl w-full grid md:grid-cols-12 gap-8 sm:gap-12 items-center relative z-10">
+        <div class="md:col-span-7 space-y-5 sm:space-y-6 text-center md:text-left" data-aos="fade-right">
+            <h1 class="text-3xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#cdc6be] leading-tight min-h-[90px] sm:min-h-[150px]">
+                I'm <br class="hidden sm:block">
+                <span id="typing-text" class="text-white border-r-4 border-[#cdc6be] pr-1 animate-pulse"></span>
             </h1>
-            <p class="sm:text-lg opacity-80 max-w-lg">
-                Mahasiswa Informatika Universitas Udayana yang sedang mendalami software engineering, pengembangan web, dan penerapan clean code.
+            <p class="text-xs sm:text-base text-[#cdc6be]/70 max-w-lg leading-relaxed font-light mx-auto md:mx-0">
+                Mahasiswa Informatika Universitas Udayana yang berfokus pada <span class="text-[#cdc6be] font-medium">Software Engineering</span>, pengembangan aplikasi web modern, dan penerapan <span class="text-[#cdc6be] font-medium">Clean Code</span>.
             </p>
-            <div class="pt-4 flex justify-center md:justify-start gap-4">
-                <a href="#biodata" class="px-7 py-3 bg-[#cdc6be] text-[#0b0b0b] text-lg rounded-full hover:opacity-90 transition">
-                    Biodata
+            <div class="pt-2 sm:pt-4 flex flex-col sm:flex-row justify-center md:justify-start gap-3 sm:gap-4 font-mono">
+                <a href="#biodata" class="px-6 sm:px-8 py-3 sm:py-3.5 bg-[#cdc6be] text-[#0b0b0b] text-sm sm:text-base font-bold rounded-full hover:bg-white hover:scale-105 transition duration-300 shadow-lg shadow-[#cdc6be]/10 flex items-center justify-center gap-2">
+                    <span>Explore Biodata</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
                 </a>
-                <a href="https://www.instagram.com/nyssaja/" target="_blank" class="px-7 py-3 border border-[#cdc6be]/30 rounded-full hover:border-[#cdc6be] transition">
-                    <i class="fa-brands fa-instagram text-lg pr-2"></i>
-                    Instagram
+                <a href="https://www.instagram.com/nyssaja/" target="_blank" class="px-6 sm:px-7 py-3 sm:py-3.5 border border-[#cdc6be]/30 text-[#cdc6be] text-sm sm:text-base rounded-full hover:border-[#cdc6be] hover:bg-[#cdc6be]/10 transition duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-instagram text-base"></i>
+                    <span>Instagram</span>
                 </a>
             </div>
         </div>
-
-        <div class="flex justify-center md:justify-end order-1 md:order-2" data-aos="fade-up" data-aos-delay="200">
-            <div class="relative w-64 sm:w-80 group">
-                <div class="absolute inset-0 border border-[#cdc6be]/20 rounded-tl-3xl rounded-br-3xl translate-x-3 translate-y-3 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform"></div>
-                <div class="overflow-hidden rounded-tl-3xl rounded-br-3xl border border-[#cdc6be]/20 bg-[#161615]">
-                    <img src="images/foto.jpg" alt="Denys Yudiantara" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500">
+        <div class="md:col-span-5 flex justify-center md:justify-end pt-4 md:pt-0" data-aos="fade-left" data-aos-delay="200">
+            <div class="relative w-60 sm:w-80 group cursor-pointer">
+                <div class="absolute -inset-3 sm:-inset-4 bg-gradient-to-tr from-[#cdc6be]/40 via-white/20 to-transparent rounded-tl-[2rem] sm:rounded-tl-[2.5rem] rounded-br-[2rem] sm:rounded-br-[2.5rem] blur-xl sm:blur-2xl opacity-0 group-hover:opacity-100 group-hover:scale-105 transition duration-700 ease-out"></div>
+                <div class="absolute inset-0 border border-[#cdc6be]/30 rounded-tl-[1.8rem] sm:rounded-tl-[2rem] rounded-br-[1.8rem] sm:rounded-br-[2rem] translate-x-2.5 translate-y-2.5 sm:translate-x-4 sm:translate-y-4 group-hover:translate-x-1 sm:group-hover:translate-x-2 group-hover:translate-y-1 sm:group-hover:translate-y-2 group-hover:border-[#cdc6be] transition duration-500"></div>
+                <div class="relative overflow-hidden rounded-tl-[1.8rem] sm:rounded-tl-[2rem] rounded-br-[1.8rem] sm:rounded-br-[2rem] border border-[#cdc6be]/20 bg-[#161615] shadow-2xl">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-transparent transition duration-500 z-10 pointer-events-none"></div>
+                    <img src="images/foto.jpg" alt="Denys Yudiantara" class="w-full h-auto object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 group-hover:brightness-110 transition duration-700 ease-out">
                 </div>
             </div>
         </div>
@@ -139,201 +157,357 @@
 </div>
 
 <!-- Biodata -->
-<section id="biodata" class="min-h-screen flex items-center justify-center px-6 py-20">
-    <div class="max-w-4xl w-full space-y-10">
-        <div class="space-y-2 border-b border-[#cdc6be]/50 pb-6" data-aos="fade-up">
-            <h2 class="text-4xl sm:text-5xl font-bold">Biodata</h2>
+<section id="biodata" class="min-h-screen relative bg-[#0b0b0b] py-16 px-4 sm:px-8 flex items-center justify-center font-sans">
+    <div class="relative max-w-6xl w-full bg-[#161615] text-[#cdc6be] border border-[#cdc6be]/20 rounded-[2.5rem] p-5 sm:p-10 md:p-12 shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-duration="800">
+        <div class="relative z-10 pb-8 border-b border-[#cdc6be]/15" data-aos="fade-right">
+            <h2 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight uppercase leading-none text-[#cdc6be]">
+                PERSONAL <span class="text-[#cdc6be]/30">INFO</span>
+            </h2>
         </div>
 
-        <div class="divide-y divide-[#cdc6be]/30 text-sm">            
-            <div class="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2" data-aos="fade-up" data-aos-delay="100">
-                <span class="text-sm">Nama Lengkap</span>
-                <span class="sm:col-span-2 font-medium">I Gusti Ngurah Denys Yudiantara</span>
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-4 pt-8">
+            <div class="md:col-span-8 bg-[#1a1a19] p-5 sm:p-6 rounded-3xl border border-[#cdc6be]/20 hover:border-[#cdc6be]/60 transition duration-300 flex flex-col justify-between gap-4 relative overflow-hidden group shadow-md" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs sm:text-sm font-mono text-[#cdc6be]/60 uppercase tracking-widest font-semibold">NAMA LENGKAP</span>
+                    <span class="text-2xl sm:text-3xl font-black text-[#cdc6be]/10 group-hover:text-[#cdc6be]/30 transition duration-300">01</span>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-2xl sm:text-4xl font-black text-[#cdc6be] tracking-tight group-hover:text-white transition duration-300 leading-snug">
+                        I Gusti Ngurah Denys Yudiantara
+                    </h3>
+                    <p class="text-xs sm:text-sm font-mono text-[#cdc6be]/70">Informatics Student at Universitas Udayana</p>
+                </div>
             </div>
 
-            <div class="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2" data-aos="fade-up" data-aos-delay="150">
-                <span class="text-sm">Tempat, Tanggal Lahir</span>
-                <span class="sm:col-span-2 font-medium">Denpasar, 12 Februari 2008</span>
+            <div class="md:col-span-4 bg-[#1a1a19] p-5 sm:p-6 rounded-3xl border border-[#cdc6be]/20 hover:border-[#cdc6be]/60 transition duration-300 flex flex-col justify-start gap-3 relative overflow-hidden group shadow-md" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs sm:text-sm font-mono text-[#cdc6be]/60 uppercase tracking-widest font-semibold">GENDER & STATUS</span>
+                    <span class="text-2xl sm:text-3xl font-black text-[#cdc6be]/10 group-hover:text-[#cdc6be]/30 transition duration-300">02</span>
+                </div>
+                <div class="space-y-1 pt-1">
+                    <span class="block text-[11px] font-mono text-[#cdc6be]/50 uppercase">Jenis Kelamin</span>
+                    <span class="font-bold text-lg sm:text-xl text-[#cdc6be] group-hover:text-white transition duration-300">Laki-laki</span>
+                </div>
             </div>
 
-            <div class="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2" data-aos="fade-up" data-aos-delay="200">
-                <span class="text-sm">Jenis Kelamin</span>
-                <span class="sm:col-span-2 font-medium">Laki-laki</span>
+            <div class="md:col-span-4 bg-[#1a1a19] p-5 sm:p-6 rounded-3xl border border-[#cdc6be]/20 hover:border-[#cdc6be]/60 transition duration-300 flex flex-col justify-start gap-3 relative overflow-hidden group shadow-md" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs sm:text-sm font-mono text-[#cdc6be]/60 uppercase tracking-widest font-semibold">KELAHIRAN</span>
+                    <span class="text-2xl sm:text-3xl font-black text-[#cdc6be]/10 group-hover:text-[#cdc6be]/30 transition duration-300">03</span>
+                </div>
+                <div class="space-y-1 pt-1">
+                    <span class="block text-[11px] font-mono text-[#cdc6be]/50 uppercase">Tempat, Tanggal Lahir</span>
+                    <span class="font-extrabold text-lg sm:text-xl text-[#cdc6be] group-hover:text-white transition duration-300">Denpasar, 12 Feb 2008</span>
+                </div>
             </div>
 
-            <div class="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2" data-aos="fade-up" data-aos-delay="250">
-                <span class="text-sm">Perguruan Tinggi</span>
-                <span class="sm:col-span-2 font-medium">Universitas Udayana</span>
+            <div class="md:col-span-8 bg-gradient-to-br from-[#1a1a19] to-[#0b0b0b] p-5 sm:p-6 rounded-3xl border border-[#cdc6be]/30 hover:border-[#cdc6be]/70 transition duration-300 flex flex-col justify-start gap-4 relative overflow-hidden group shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs sm:text-sm font-mono text-[#cdc6be]/60 uppercase tracking-widest font-semibold">INSTITUSI AKADEMIK</span>
+                    <span class="text-2xl sm:text-3xl font-black text-[#cdc6be]/10 group-hover:text-[#cdc6be]/30 transition duration-300">04</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                    <div>
+                        <span class="block text-[11px] font-mono text-[#cdc6be]/50 uppercase mb-0.5">Perguruan Tinggi</span>
+                        <h4 class="font-black text-lg sm:text-xl text-[#cdc6be] group-hover:text-white transition duration-300">Universitas Udayana</h4>
+                    </div>
+                    <div>
+                        <span class="block text-[11px] font-mono text-[#cdc6be]/50 uppercase mb-0.5">Program Studi | Matematika & Ilmu Pengetahuan Alam</span>
+                        <h4 class="font-black text-lg sm:text-xl text-emerald-400 group-hover:text-emerald-300 transition duration-300">Informatika</h4>
+                    </div>
+                </div>
             </div>
 
-            <div class="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2" data-aos="fade-up" data-aos-delay="300">
-                <span class="text-sm">Fakultas</span>
-                <span class="sm:col-span-2 font-medium">Matematika dan Ilmu Pengetahuan Alam</span>
+            <div class="md:col-span-4 bg-[#1a1a19] p-5 sm:p-6 rounded-3xl border border-[#cdc6be]/20 hover:border-[#cdc6be]/60 transition duration-300 flex flex-col justify-start gap-2 group shadow-md">
+                <div class="text-[#cdc6be]/60 text-xs sm:text-sm font-mono font-semibold uppercase tracking-widest">
+                    TELEPON
+                </div>
+                <div class="pt-1">
+                    <span class="font-black text-base sm:text-lg text-[#cdc6be] font-mono group-hover:text-white transition duration-300">083114092858</span>
+                </div>
             </div>
 
-            <div class="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2" data-aos="fade-up" data-aos-delay="350">
-                <span class="text-sm">Program Studi</span>
-                <span class="sm:col-span-2 font-medium">Informatika</span>
+            <div class="md:col-span-4 bg-[#1a1a19] p-5 sm:p-6 rounded-3xl border border-[#cdc6be]/20 hover:border-[#cdc6be]/60 transition duration-300 flex flex-col justify-start gap-2 group shadow-md">
+                <div class="text-[#cdc6be]/60 text-xs sm:text-sm font-mono font-semibold uppercase tracking-widest">
+                    EMAIL
+                </div>
+                <div class="pt-1">
+                    <span class="font-bold text-xs sm:text-sm text-[#cdc6be] font-mono truncate block group-hover:text-white transition duration-300" title="denysyudiantara@gmail.com">denysyudiantara@gmail.com</span>
+                </div>
             </div>
 
-            <div class="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2" data-aos="fade-up" data-aos-delay="400">
-                <span class="text-sm">Nomor Telepon</span>
-                <span class="sm:col-span-2 font-medium">083114092858</span>
+            <div class="md:col-span-4 bg-[#1a1a19] p-5 sm:p-6 rounded-3xl border border-[#cdc6be]/20 hover:border-[#cdc6be]/60 transition duration-300 flex flex-col justify-start gap-2 group shadow-md">
+                <div class="text-[#cdc6be]/60 text-xs sm:text-sm font-mono font-semibold uppercase tracking-widest">
+                    LINKEDIN
+                </div>
+                <div class="pt-1">
+                    <h5 class="font-bold text-sm sm:text-base text-[#cdc6be] font-mono group-hover:text-white transition duration-300">I Gusti Ngurah Denys Yudiantara</h5>
+                </div>
             </div>
-
-            <div class="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2" data-aos="fade-up" data-aos-delay="450">
-                <span class="text-sm">Email</span>
-                <a class="sm:col-span-2 font-medium">denysyudiantara@gmail.com</a>
-            </div>
-
-            <div class="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2" data-aos="fade-up" data-aos-delay="500">
-                <span class="text-sm">LinkedIn</span>
-                <a class="sm:col-span-2 font-medium">I Gusti Ngurah Denys Yudiantara</a>
-            </div>
-
         </div>
     </div>
 </section>
 
-
-    <!-- Pendidikan -->
-    <section id="pendidikan" class="min-h-screen flex items-center justify-center px-6 py-20">
-        <div class="max-w-4xl w-full space-y-10">
-            <div class="space-y-2 border-b border-[#cdc6be]/50 pb-6" data-aos="fade-up">
-                <h2 class="text-4xl sm:text-5xl font-bold">Riwayat Pendidikan</h2>
+<!-- Riwayat Pendidikan -->
+<section id="pendidikan" class="min-h-screen relative bg-[#0b0b0b] py-24 px-4 sm:px-8 flex items-center justify-center">
+    <div class="relative max-w-6xl w-full bg-[#161615] text-[#cdc6be] border border-[#cdc6be]/20 rounded-[2.5rem] p-6 sm:p-12 md:p-16 shadow-2xl overflow-hidden" data-aos="fade-up">
+        <div class="relative z-10 space-y-12">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#cdc6be]/15 pb-8" data-aos="fade-right">
+                <div class="space-y-3">
+                    <h2 class="text-4xl sm:text-6xl font-black tracking-tight uppercase text-[#cdc6be]">
+                        RIWAYAT <span class="text-[#cdc6be]/40">PENDIDIKAN</span>
+                    </h2>
+                </div>
             </div>
-
-            <div class="relative border-l border-[#cdc6be]/20 ml-2 sm:ml-4 pl-6 sm:pl-8 space-y-8">
-                
-                <div class="relative" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-[#cdc6be]"></div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-start">
-                        <div class="flex items-center gap-2">
-                            <span class="text-[16px] opacity-60 font-medium">2026 - Sekarang</span>
-                            <span class="px-2 py-0.5 text-[10px] font-semibold border border-[#cdc6be]/30 rounded-full">AKTIF</span>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+                <div class="md:col-span-12 bg-[#1a1a19] p-6 sm:p-8 rounded-3xl border border-[#cdc6be]/30 hover:border-[#cdc6be] transition duration-500 shadow-lg relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-[#0b0b0b] border border-emerald-500/40 rounded-full text-xs font-mono text-emerald-400">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="font-bold">AKTIF — MAHASISWA</span>
                         </div>
+                        <span class="text-xs font-mono text-[#cdc6be]/70 bg-[#0b0b0b] px-3.5 py-1.5 rounded-full border border-[#cdc6be]/10">
+                            2026 — Sekarang
+                        </span>
+                    </div>
 
-                        <div class="sm:col-span-2">
-                            <h3 class="text-xl font-bold">Universitas Udayana</h3>
-                            <p class="text-sm opacity-70 mt-1">S1 Informatika - Fakultas MIPA</p>
-                        </div>
+                    <div class="space-y-2">
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-[#cdc6be] tracking-tight group-hover:text-white transition">
+                            Universitas Udayana
+                        </h3>
+                        <p class="text-sm sm:text-base font-mono text-[#cdc6be]/80 flex items-center gap-2">
+                            Informatika
+                        </p>
                     </div>
                 </div>
 
-                <div class="relative" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-[#cdc6be]/30"></div>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-start">
-                        <span class="text-[16px] opacity-50 font-medium">2023 - 2026</span>
-                        <div class="sm:col-span-2">
-                            <h3 class="text-xl font-bold">SMKS Wira Harapan</h3>
-                            <p class="text-sm opacity-70 mt-1">Rekayasa Perangkat Lunak</p>
-                        </div>
+                <div class="md:col-span-6 bg-[#1a1a19] p-6 sm:p-8 rounded-3xl border border-[#cdc6be]/20 hover:border-[#cdc6be]/60 transition duration-500 shadow-md relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-between gap-2 mb-6">
+                        <span class="text-xs font-mono text-[#cdc6be]/60 bg-[#0b0b0b] px-3.5 py-1.5 rounded-full border border-[#cdc6be]/10">
+                            2023 — 2026
+                        </span>
+                        <span class="text-xs font-mono text-[#cdc6be]/40 uppercase tracking-widest">SMK</span>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-[#cdc6be] tracking-tight group-hover:text-white transition">
+                            SMKS Wira Harapan
+                        </h3>
+                        <p class="text-xs sm:text-sm font-mono text-[#cdc6be]/80 flex items-center gap-2">
+                            Rekayasa Perangkat Lunak (RPL)
+                        </p>
                     </div>
                 </div>
 
-                <div class="relative" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-[#cdc6be]/30"></div>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-start">
-                        <span class="text-[16px] opacity-50 font-medium">2020 - 2023</span>
-                        <div class="sm:col-span-2">
-                            <h3 class="text-xl font-bold">SMP Negeri 3 Kuta Utara</h3>
-                            <p class="text-sm opacity-70 mt-1">Sekolah Menengah Pertama</p>
-                        </div>
+                <div class="md:col-span-6 bg-[#1a1a19] p-6 sm:p-8 rounded-3xl border border-[#cdc6be]/20 hover:border-[#cdc6be]/60 transition duration-500 shadow-md relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center justify-between gap-2 mb-6">
+                        <span class="text-xs font-mono text-[#cdc6be]/60 bg-[#0b0b0b] px-3.5 py-1.5 rounded-full border border-[#cdc6be]/10">
+                            2020 — 2023
+                        </span>
+                        <span class="text-xs font-mono text-[#cdc6be]/40 uppercase tracking-widest">SMP</span>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="text-xl sm:text-2xl font-bold text-[#cdc6be] tracking-tight group-hover:text-white transition">
+                            SMPN 3 Kuta Utara
+                        </h3>
+                        <p class="text-xs sm:text-sm font-mono text-[#cdc6be]/80 flex items-center gap-2">
+                            Sekolah Menengah Pertama
+                        </p>
                     </div>
                 </div>
 
-                <div class="relative" data-aos="fade-up" data-aos-delay="400">
-                    <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3 h-3 rounded-full bg-[#cdc6be]/30"></div>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 items-start">
-                        <span class="text-[16px] opacity-50 font-medium">2014 - 2020</span>
-                        <div class="sm:col-span-2">
-                            <h3 class="text-xl font-bold">SD Negeri 2 Kerobokan</h3>
-                            <p class="text-sm opacity-70 mt-1">Sekolah Dasar</p>
+                <div class="md:col-span-12 bg-[#1a1a19]/80 p-5 sm:p-6 rounded-3xl border border-[#cdc6be]/15 hover:border-[#cdc6be]/40 transition duration-500 flex flex-col sm:flex-row sm:items-center justify-between gap-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-[#0b0b0b] border border-[#cdc6be]/20 flex items-center justify-center text-xs font-mono font-bold text-[#cdc6be]">
+                            SD
+                        </div>
+                        <div>
+                            <h4 class="text-base font-bold text-[#cdc6be]">SD Negeri 2 Kerobokan</h4>
+                            <p class="text-xs font-mono text-[#cdc6be]/60">Sekolah Dasar</p>
                         </div>
                     </div>
+                    <span class="text-xs font-mono text-[#cdc6be]/50 bg-[#0b0b0b] px-3.5 py-1.5 rounded-full border border-[#cdc6be]/10 w-fit">
+                        2014 — 2020
+                    </span>
                 </div>
-
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- Pengalaman -->
-<section id="experience" class="min-h-screen flex items-center justify-center px-6 py-20">
+<section id="experience" class="min-h-screen relative bg-[#0b0b0b] text-[#cdc6be] py-20 px-4 sm:px-8 flex items-center justify-center font-sans">
     <div class="max-w-4xl w-full space-y-10">
-        <div class="space-y-2 border-b border-[#cdc6be]/50 pb-6" data-aos="fade-up">
-            <h2 class="text-4xl sm:text-5xl font-bold">Pengalaman</h2>
+        <div class="space-y-3 border-b border-[#cdc6be]/20 pb-6" data-aos="fade-up">
+            <h2 class="text-4xl sm:text-6xl font-black tracking-tight uppercase leading-none text-[#cdc6be]">
+                PENGALAMAN <span class="text-[#cdc6be]/30">KERJA</span>
+            </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="p-6 border border-[#cdc6be]/20 rounded-2xl bg-[#121212] space-y-4 hover:border-[#cdc6be]/50 transition duration-300" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex justify-between items-start">
-                    <span class="text-xs uppercase tracking-wider opacity-60 font-medium">PKL / Magang</span>
-                    <span class="text-xs border border-[#cdc6be]/30 px-2.5 py-1 rounded-full opacity-80">Software</span>
+        <div class="space-y-6">
+            <div class="p-5 sm:p-7 bg-[#161615] border border-[#cdc6be]/20 rounded-3xl hover:border-[#cdc6be]/60 transition duration-300 space-y-4 group shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#cdc6be]/10 pb-3">
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <span class="text-[#cdc6be]/60 text-xl font-semibold uppercase">PKL</span>
+                    </div>
+                    <span class="text-xl font-mono text-[#cdc6be]/50">Software Developer</span>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold">PT Global Lintas Solusi</h3>
-                    <p class="text-sm opacity-80 font-medium mt-0.5">Software Developer</p>
+
+                <div class="space-y-1">
+                    <h3 class="text-2xl sm:text-3xl font-black text-[#cdc6be] group-hover:text-white transition duration-300">
+                        PT Global Lintas Solusi
+                    </h3>
+                    <p class="text-xs sm:text-sm text-[#cdc6be] font-light leading-relaxed pt-1">
+                        Mengembangkan dan memelihara aplikasi Billing berbasis web menggunakan framework CodeIgniter.
+                    </p>
                 </div>
-                <p class="text-sm opacity-60 font-light leading-relaxed">
-                    Mengembangkan dan memelihara aplikasi Billing berbasis web menggunakan framework CodeIgniter.
-                </p>
+
+                <div class="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
+                    <span class="px-3 py-1 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-lg text-[#cdc6be]/80">CodeIgniter</span>
+                    <span class="px-3 py-1 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-lg text-[#cdc6be]/80">PHP</span>
+                    <span class="px-3 py-1 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-lg text-[#cdc6be]/80">MySQL</span>
+                </div>
+
             </div>
 
-            <div class="p-6 border border-[#cdc6be]/20 rounded-2xl bg-[#121212] space-y-4 hover:border-[#cdc6be]/50 transition duration-300" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex justify-between items-start">
-                    <span class="text-xs uppercase tracking-wider opacity-60 font-medium">Kerja / Part-time</span>
-                    <span class="text-xs border border-[#cdc6be]/30 px-2.5 py-1 rounded-full opacity-80">Service</span>
+            <div class="p-5 sm:p-7 bg-[#161615] border border-[#cdc6be]/20 rounded-3xl hover:border-[#cdc6be]/60 transition duration-300 space-y-4 group shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#cdc6be]/10 pb-3">
+                    <div class="flex items-center gap-2 font-mono text-xs">
+                        <span class="text-[#cdc6be]/60 text-xl font-semibold uppercase">PART-TIME</span>
+                    </div>
+                    <span class="text-xl font-mono text-[#cdc6be]/50">Barista</span>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold">STB (Splendid Times Begins)</h3>
-                    <p class="text-sm opacity-80 font-medium mt-0.5">Barista</p>
+
+                <div class="space-y-1">
+                    <h3 class="text-2xl sm:text-3xl font-black text-[#cdc6be] group-hover:text-white transition duration-300">
+                        STB <span class="text-xs sm:text-sm font-normal text-[#cdc6be] font-mono">(Splendid Times Begins)</span>
+                    </h3>
+                    <p class="text-xs sm:text-sm text-[#cdc6be] font-light leading-relaxed pt-1">
+                        Bertanggung jawab dalam meracik minuman, membuat latte art, serta memberikan pelayanan terbaik kepada pelanggan.
+                    </p>
                 </div>
-                <p class="text-sm opacity-60 font-light leading-relaxed">
-                    Bertanggung jawab dalam meracik minuman, membuat latte art, serta memberikan pelayanan terbaik kepada pelanggan.
-                </p>
+
+                <div class="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
+                    <span class="px-3 py-1 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-lg text-[#cdc6be]/80">Bar Operations</span>
+                    <span class="px-3 py-1 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-lg text-[#cdc6be]/80">Customer Service</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Keahlian-->
-<section id="keahlian" class="min-h-screen flex items-center justify-center px-6 py-20">
-    <div class="max-w-4xl w-full space-y-10">
-        <div class="space-y-2 border-b border-[#cdc6be]/50 pb-6" data-aos="fade-up">
-            <h2 class="text-4xl sm:text-5xl font-bold">Keahlian</h2>
+<section id="keahlian" class="min-h-screen relative bg-[#0b0b0b] text-[#cdc6be] py-20 px-4 sm:px-8 flex items-center justify-center font-sans overflow-hidden">
+    <div class="max-w-5xl w-full space-y-10 relative z-10">
+        <div class="space-y-3 border-b border-[#cdc6be]/20 pb-6" data-aos="fade-up">
+            <h2 class="text-4xl sm:text-6xl font-black tracking-tight uppercase leading-none text-[#cdc6be]">
+                KEAHLIAN <span class="text-[#cdc6be]/30">& TOOLS</span>
+            </h2>
         </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-baseline" data-aos="fade-up" data-aos-delay="100">
-                <span class="text-sm opacity-50 font-medium">BAHASA PEMROGRAMAN</span>
-                <div class="sm:col-span-2 flex flex-wrap gap-2.5">
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">PHP</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">C</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">C++</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">Java</span>
+
+        <div class="w-full overflow-hidden bg-[#161615] border border-[#cdc6be]/20 py-2.5 rounded-2xl select-none" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex whitespace-nowrap animate-marquee gap-8 text-xs font-mono text-[#cdc6be]/80 font-medium tracking-wider">
+                <span>LET'S CREATE SOMETHING GREAT</span>
+                <span class="text-emerald-400">✦</span>
+                <span>CODE • BUILD • SHIP</span>
+                <span class="text-emerald-400">✦</span>
+                <span>TURN IDEAS INTO REALITY</span>
+                <span class="text-emerald-400">✦</span>
+                <span>ALWAYS LEARNING</span>
+                <span class="text-emerald-400">✦</span>
+
+                <span>LET'S CREATE SOMETHING GREAT</span>
+                <span class="text-emerald-400">✦</span>
+                <span>CODE • BUILD • SHIP</span>
+                <span class="text-emerald-400">✦</span>
+                <span>TURN IDEAS INTO REALITY</span>
+                <span class="text-emerald-400">✦</span>
+                <span>ALWAYS LEARNING</span>
+                <span class="text-emerald-400">✦</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="p-6 bg-[#161615] border border-[#cdc6be]/20 rounded-3xl hover:border-[#cdc6be]/60 transition duration-300 flex flex-col justify-between gap-6 group shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between border-b border-[#cdc6be]/10 pb-3">
+                        <span class="text-xs font-mono font-bold tracking-widest text-[#cdc6be]/60 uppercase">LANGUAGES</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#cdc6be] group-hover:text-white transition">Bahasa Pemrograman</h3>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 font-mono text-xs">
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 group-hover/tag:border-emerald-400/50 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-brands fa-php text-indigo-400 text-sm"></i> PHP
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-solid fa-c text-blue-400 text-xs"></i> C
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="devicon-cplusplus-plain colored text-sm"></i> C++
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-brands fa-java text-amber-500 text-sm"></i> Java
+                    </span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-baseline border-t border-[#cdc6be]/30 pt-6" data-aos="fade-up" data-aos-delay="200">
-                <span class="text-sm opacity-50 font-medium">FRAMEWORK & TOOLS</span>
-                <div class="sm:col-span-2 flex flex-wrap gap-2.5">
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">Laravel</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">CodeIgniter</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">Filament</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">Tailwind CSS</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">Bootstrap</span>
+            <div class="p-6 bg-[#161615] border border-[#cdc6be]/20 rounded-3xl hover:border-[#cdc6be]/60 transition duration-300 flex flex-col justify-between gap-6 group shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between border-b border-[#cdc6be]/10 pb-3">
+                        <span class="text-xs font-mono font-bold tracking-widest text-[#cdc6be]/60 uppercase">FRAMEWORKS</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#cdc6be] group-hover:text-white transition">Framework & UI</h3>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 font-mono text-xs">
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-brands fa-laravel text-red-500 text-sm"></i> Laravel
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-solid fa-fire text-orange-500 text-xs"></i> CodeIgniter
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-solid fa-paperclip text-amber-400 text-xs"></i> Filament
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-brands fa-css3-alt text-teal-400 text-sm"></i> Tailwind CSS
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-brands fa-bootstrap text-purple-500 text-sm"></i> Bootstrap
+                    </span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-baseline border-t border-[#cdc6be]/30 pt-6" data-aos="fade-up" data-aos-delay="300">
-                <span class="text-sm opacity-50 font-medium">DATABASE & LAINNYA</span>
-                <div class="sm:col-span-2 flex flex-wrap gap-2.5">
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">MySQL</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">Git & GitHub</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">VS Code</span>
-                    <span class="px-3.5 py-1.5 text-sm border border-[#cdc6be]/20 bg-[#161615] rounded-full font-medium">Figma</span>
+            <div class="p-6 bg-[#161615] border border-[#cdc6be]/20 rounded-3xl hover:border-[#cdc6be]/60 transition duration-300 flex flex-col justify-between gap-6 group shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between border-b border-[#cdc6be]/10 pb-3">
+                        <span class="text-xs font-mono font-bold tracking-widest text-[#cdc6be]/60 uppercase">ECOSYSTEM</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#cdc6be] group-hover:text-white transition">Database & Tools</h3>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 font-mono text-xs">
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-solid fa-database text-blue-500 text-xs"></i> MySQL
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-brands fa-github text-white text-sm"></i> Git & GitHub
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-solid fa-[#007ACC] fa-code text-sky-400 text-xs"></i> VS Code
+                    </span>
+                    <span class="px-3.5 py-2 bg-[#0b0b0b] border border-[#cdc6be]/15 rounded-xl flex items-center gap-2 hover:bg-[#cdc6be]/10 hover:text-white transition cursor-default">
+                        <i class="fa-brands fa-figma text-pink-400 text-sm"></i> Figma
+                    </span>
                 </div>
             </div>
-         </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 <!-- Projects -->
@@ -354,7 +528,7 @@
                             <h3 class="text-xl font-bold">Aplikasi Billing System</h3>
                             <span class="text-[10px] uppercase tracking-wider border border-[#cdc6be]/30 px-2.5 py-0.5 rounded-full opacity-80">Billing System</span>
                         </div>
-                        <p class="text-sm opacity-60 font-light leading-relaxed">
+                        <p class="text-sm font-light leading-relaxed">
                             Sistem pengelolaan tagihan dan data pelanggan berbasis web yang dikembangkan saat magang di PT Global Lintas Solusi.
                         </p>
                     </div>
@@ -371,7 +545,7 @@
                             <h3 class="text-xl font-bold">MONEV TJSL AirNav</h3>
                             <span class="text-[10px] uppercase tracking-wider border border-[#cdc6be]/30 px-2.5 py-0.5 rounded-full opacity-80">Web System</span>
                         </div>
-                        <p class="text-sm opacity-60 font-light leading-relaxed">
+                        <p class="text-sm font-light leading-relaxed">
                             Sistem informasi pemantauan dan pengelolaan hasil panen, bahan baku, hingga produk olahan usaha berbasis salak.
                         </p>
                     </div>
@@ -388,7 +562,7 @@
                             <h3 class="text-xl font-bold">Aspirasi Siswa</h3>
                             <span class="text-[10px] uppercase tracking-wider border border-[#cdc6be]/30 px-2.5 py-0.5 rounded-full opacity-80">School Web App</span>
                         </div>
-                        <p class="text-sm opacity-60 font-light leading-relaxed">
+                        <p class="text-sm font-light leading-relaxed">
                             Platform penyampaian pengaduan dan aspirasi fasilitas sekolah bagi siswa secara online transparan beserta tanggapan admin.
                         </p>
                     </div>
@@ -405,7 +579,7 @@
                             <h3 class="text-xl font-bold">Sistem Inventaris & Peminjaman</h3>
                             <span class="text-[10px] uppercase tracking-wider border border-[#cdc6be]/30 px-2.5 py-0.5 rounded-full opacity-80">Inventory Web</span>
                         </div>
-                        <p class="text-sm opacity-60 font-light leading-relaxed">
+                        <p class="text-sm font-light leading-relaxed">
                             Sistem informasi pemantauan transaksi dan riwayat peminjaman barang/alat sekolah secara real-time.
                         </p>
                     </div>
@@ -421,7 +595,7 @@
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 border-b border-[#cdc6be]/15 pb-12" data-aos="fade-up">
             <div class="space-y-2 max-w-md">
                 <h3 class="text-2xl sm:text-3xl font-bold">Yuk, Kenalan!</h3>
-                <p class="text-sm opacity-60 font-light">
+                <p class="text-sm font-light">
                     Jangan cuma liat-liat aja, ntar kepikiran!
                 </p>
             </div>
@@ -433,7 +607,7 @@
         <div class="flex flex-col sm:flex-row justify-between items-center gap-6" data-aos="fade-up" data-aos-delay="100">
             <div>
                 <span class="text-lg font-bold tracking-tight">Denys Yudiantara</span>
-                <p class="text-xs opacity-50">Informatika — Universitas Udayana</p>
+                <p class="text-xs">Informatika — Universitas Udayana</p>
             </div>
                 <div class="flex flex-wrap items-center gap-6 text-sm opacity-70">
                     <a href="https://github.com/NyssINI" target="_blank" class="flex items-center gap-2 hover:opacity-100 hover:text-[#cdc6be] transition duration-300">
@@ -450,7 +624,7 @@
                 </a>
             </div>
         </div>
-       <div class="text-center sm:text-left border-t border-[#cdc6be]/25 pt-6 flex flex-col sm:flex-row justify-between text-xs opacity-40 gap-2">
+       <div class="text-center sm:text-left border-t border-[#cdc6be]/25 pt-6 flex flex-col sm:flex-row justify-between text-xs gap-2">
             <p>&copy; 2026 Denys Yudiantara</p>
             <p>Designed with passion</p>
         </div>
@@ -479,6 +653,44 @@
                 document.body.style.overflow = 'auto';
             }
         }
+
+    const words = [
+        "Denys Yudiantara", 
+        "Software Engineer"
+    ];
+    
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.getElementById("typing-text");
+
+    function typeEffect() {
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+            typingElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 60 : 120;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 2000; 
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length; 
+            typeSpeed = 500;
+        }
+
+        setTimeout(typeEffect, typeSpeed);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+        typeEffect();
+    });
     </script>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
